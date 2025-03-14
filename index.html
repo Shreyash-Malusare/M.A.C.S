@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Favicon for Light Mode -->
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+      type="image/svg+xml"
+      href="./macslogo2.png"
+    />
+    <!-- Favicon for Dark Mode -->
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      type="image/svg+xml"
+      href="./macslogo.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M.A.C.S. - Modern. Authentic. Confident. Style.</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+     <!-- Fallback Script for Dynamic Theme Changes -->
+     <script>
+      const favicon = document.getElementById('favicon');
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      // Update favicon when theme changes
+      const updateFavicon = (e) => {
+        favicon.href = e.matches ? './macslogo2.png' : './macslogo.png';
+      };
+
+      // Initial check
+      updateFavicon(darkModeMediaQuery);
+      
+      // Listen for theme changes
+      darkModeMediaQuery.addEventListener('change', updateFavicon);
+    </script>
+  </body>
+</html>

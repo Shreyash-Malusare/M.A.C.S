@@ -75,7 +75,7 @@ export const Checkout: React.FC = () => {
     }
 
     try {
-      await axios.post(`${VITE_FRONT_END_IP}:3001/api/orders`, {
+      await axios.post(`${VITE_FRONT_END_IP}/api/orders`, {
         userId: user._id,
         items: items.map((item) => ({
           product: item.productId._id,
@@ -105,7 +105,7 @@ export const Checkout: React.FC = () => {
       setProcessingPayment(true);
       const amountInPaise = amount * 100;
 
-      const { data } = await axios.post(`${VITE_FRONT_END_IP}:3001/api/payment`, {
+      const { data } = await axios.post(`${VITE_FRONT_END_IP}/api/payment`, {
         amount: amountInPaise,
         currency: 'INR',
       });

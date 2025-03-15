@@ -7,4 +7,8 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    outDir: 'build', // Ensure this matches your publish directory
+    chunkSizeWarningLimit: 1000, // Adjust chunk size limit if needed
+  },
 });

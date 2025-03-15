@@ -50,8 +50,8 @@ export const Orders = () => {
         setError('');
 
         const endpoint = user?.role === 'admin'
-          ? `${VITE_FRONT_END_IP}:3001/api/orders/all`
-          : `${VITE_FRONT_END_IP}:3001/api/orders?userId=${user?._id}`;
+          ? `${VITE_FRONT_END_IP}/api/orders/all`
+          : `${VITE_FRONT_END_IP}/api/orders?userId=${user?._id}`;
 
         const response = await axios.get(endpoint);
         setOrders(response.data);

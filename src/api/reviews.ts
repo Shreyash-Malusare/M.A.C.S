@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const VITE_FRONT_END_IP = import.meta.env.VITE_FRONT_END_IP;
-const API_URL = `${VITE_FRONT_END_IP}:3001/api/reviews`;
+const API_URL = `${VITE_FRONT_END_IP}/api/reviews`;
 
 export interface Review {
   _id: string;

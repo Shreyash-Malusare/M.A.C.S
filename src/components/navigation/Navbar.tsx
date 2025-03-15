@@ -76,12 +76,12 @@ export function Navbar({
                     <img
                       src={logow1}
                       alt="Logo 1"
-                      className="h-12"
+                      className="h-10 md:h-12" // Small on mobile (h-10), larger on desktop (md:h-12)
                     />
                     <img
                       src={logow2}
                       alt="Logo 2"
-                      className="h-12"
+                      className="hidden md:block h-6 md:h-12" // Hidden on mobile, visible on desktop
                     />
                   </>
                 )}
@@ -91,12 +91,12 @@ export function Navbar({
                     <img
                       src={logob1}
                       alt="Logo 1"
-                      className="h-12"
+                      className="h-10 md:h-12" // Small on mobile (h-8), larger on desktop (md:h-12)
                     />
                     <img
                       src={logob2}
                       alt="Logo 2"
-                      className="h-12"
+                      className="hidden md:block h-8 md:h-12" // Hidden on mobile, visible on desktop
                     />
                   </>
                 )}

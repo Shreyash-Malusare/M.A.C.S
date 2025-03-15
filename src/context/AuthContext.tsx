@@ -39,7 +39,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post(`${VITE_FRONT_END_IP}:3001/api/users/login`, { email, password });
+      const response = await axios.post(`${VITE_FRONT_END_IP}/api/users/login`, { email, password });
       const userData = response.data.user;
       setUser(userData);
       localStorage.setItem('user', JSON.stringify(userData));
@@ -51,7 +51,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const register = async (name: string, email: string, password: string) => {
     try {
-      const response = await axios.post(`${VITE_FRONT_END_IP}:3001/api/users/register`, { name, email, password });
+      const response = await axios.post(`${VITE_FRONT_END_IP}/api/users/register`, { name, email, password });
       const userData = response.data.user;
       setUser(userData);
       localStorage.setItem('user', JSON.stringify(userData));
@@ -75,7 +75,7 @@ const updateProfile = async (data: Partial<User>) => {
     console.log('Sending update data:', data); // Debugging
 
     const response = await axios.patch(
-      `${VITE_FRONT_END_IP}:3001/api/users/${user._id}`,
+      `${VITE_FRONT_END_IP}/api/users/${user._id}`,
       data,
       { headers: { 'Content-Type': 'application/json' } }
     );

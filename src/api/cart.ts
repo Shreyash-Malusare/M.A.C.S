@@ -1,6 +1,6 @@
 import axios from 'axios';
 const VITE_FRONT_END_IP = import.meta.env.VITE_FRONT_END_IP;
-const API_URL = `${VITE_FRONT_END_IP}:3001/api/cart`;
+const API_URL = `${VITE_FRONT_END_IP}/api/cart`;
 
 export const cartApi = {
   getCart: async (userId: string) => {

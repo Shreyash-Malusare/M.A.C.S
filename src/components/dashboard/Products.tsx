@@ -187,6 +187,7 @@ export const Products = () => {
                 <td className="md:hidden p-4">
                   <div className="flex flex-col gap-2">
                     <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                      <img src={product.image} alt={product.name} className="w-12 h-12 object-cover rounded" />
                       {product.name}
                     </div>
                     <div className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>

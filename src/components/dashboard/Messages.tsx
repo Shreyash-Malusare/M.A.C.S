@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { fetchMessages } from '../../api/messages';
+import Spinner from '../Spiinner';
 
 interface Message {
   _id: string;
@@ -40,7 +41,7 @@ export function Messages() {
     loadMessages();
   }, [user]);
 
-  if (loading) return <div>Loading messages...</div>;
+  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner /></div>;
 
   if (error) return <div className="text-red-500">{error}</div>;
 

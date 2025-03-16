@@ -51,7 +51,7 @@ export function ProductPage() {
     loadProduct();
   }, [id]);
 
-  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner message="Loading Product..." /></div>;
+  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner /></div>;
   if (error) return <div className="min-h-screen flex items-center justify-center text-red-500">{error}</div>;
   if (!product) return <div className="min-h-screen flex items-center justify-center">Product not found</div>;
 

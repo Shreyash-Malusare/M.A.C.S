@@ -13,10 +13,17 @@ import { Contact } from './pages/Contact';
 import { CategoryPage } from './pages/CategoryPage';
 import { ProductPage } from './pages/ProductPage';
 import { Dashboard } from './pages/user/Dashboard';
+import { Overview } from './components/dashboard/Overview';
+import { Products } from './components/dashboard/Products';
+import { Users } from './components/dashboard/Users';
+import { Orders } from './components/dashboard/Orders';
+import { Profile } from './components/dashboard/Profile';
+import { Messages } from './components/dashboard/Messages';
 import { CartItem, Product } from './types';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import {Checkout} from  './components/payment/checkout';
+import { Checkout } from './components/payment/checkout';
+
 // Create a wrapper component that uses hooks
 function AppContent() {
   const navigate = useNavigate();
@@ -37,15 +44,14 @@ function AppContent() {
             : item
         );
       }
-      return [...prev, { 
+      return [...prev, {
         _id: product._id, // Use product ID as cart item ID
         productId: product, // Ensure correct property name
-        quantity: 1 
+        quantity: 1
       }];
     });
     setIsCartOpen(true);
-  };  
-  
+  };
 
   const updateCartItemQuantity = (id: string, quantity: number) => {
     setCartItems(prev =>
@@ -84,11 +90,21 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:category" element={<CategoryPage searchQuery={searchQuery} onAddToCart={addToCart} />} />
-          <Route path="/product/:id" element={<ProductPage/>} />
+          <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/checkout" element={<Checkout />} />
+
+          {/* Dashboard Routes */}
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Overview />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="products" element={<Products />} />
+            <Route path="users" element={<Users />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
         </Routes>
       </main>
 
@@ -129,8 +145,8 @@ function AppContent() {
 // Main App component that provides context
 export default function App() {
   return (
-    <Router> {/* Move Router to wrap everything */}
-      <AuthProvider> {/* Now useNavigate is inside Router */}
+    <Router>
+      <AuthProvider>
         <ThemeProvider>
           <AppContent />
         </ThemeProvider>

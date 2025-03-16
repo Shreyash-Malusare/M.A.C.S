@@ -5,7 +5,7 @@ import { Pagination } from '../components/pagination/Pagination';
 import { Filters } from '../components/Filters';
 import { fetchProducts } from '../api/products';
 import { Product } from '../types';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/Spiinner';
 
 interface CategoryPageProps {
   searchQuery: string;

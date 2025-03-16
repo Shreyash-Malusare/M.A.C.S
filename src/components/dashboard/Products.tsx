@@ -11,7 +11,7 @@ export const Products = () => {
   const { user } = useAuth();
   const [products, setProducts] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   // Reset form function
   const resetForm = () => {
     setNewProduct({

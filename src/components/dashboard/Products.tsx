@@ -4,12 +4,14 @@ import { PlusSquare, Edit3, Trash2, Search, X } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
 import { fetchProducts, createProduct, deleteProduct, updateProduct } from '../../api/products';
+import Spinner from '../Spiinner';
 
 export const Products = () => {
   const { isDarkMode } = useTheme();
   const { user } = useAuth();
   const [products, setProducts] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [loading, setLoading] = useState(true);
   // Reset form function
   const resetForm = () => {
     setNewProduct({
@@ -134,7 +136,7 @@ export const Products = () => {
   };
 
   if (!user || user.role !== 'admin') return null;
-
+  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner /></div>;
   return (
     <div className="space-y-4 md:space-y-6">
       {/* Search and Add Product */}
@@ -187,7 +189,6 @@ export const Products = () => {
                 <td className="md:hidden p-4">
                   <div className="flex flex-col gap-2">
                     <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                      <img src={product.image} alt={product.name} className="w-12 h-12 object-cover rounded" />
                       {product.name}
                     </div>
                     <div className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>

@@ -66,7 +66,7 @@ export function CategoryPage({ searchQuery, onAddToCart }: CategoryPageProps) {
     navigate(`/category/${newCategory}`);
   };
 
-  if (loading) return <div className="flex justify-center items-center h-screen"><div className="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" /></div>;
+  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner /></div>;
 
   return (
     <main className="flex-1 max-w-7xl mx-auto px-4 py-8">

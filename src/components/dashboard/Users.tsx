@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+const VITE_FRONT_END_IP = import.meta.env.VITE_FRONT_END_IP;
+const API_URL = `${VITE_FRONT_END_IP}/api/users`;
 
 interface User {
   _id: string;
@@ -22,7 +24,7 @@ export const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/users');
+        const response = await axios.get(API_URL);
         setUsers(response.data);
       } catch (err) {
         setError('Failed to load users');
@@ -47,7 +49,7 @@ export const Users = () => {
       {/* Mobile View */}
       <div className="md:hidden space-y-4">
         {users.map((user) => (
-          <div 
+          <div
             key={user._id}
             className={`p-4 rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'} shadow-sm`}
           >
@@ -56,11 +58,10 @@ export const Users = () => {
                 <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   {user.name}
                 </span>
-                <span className={`px-2 py-1 text-xs rounded-full ${
-                  isDarkMode 
-                    ? 'bg-gray-700 text-gray-300' 
-                    : 'bg-gray-100 text-gray-600'
-                }`}>
+                <span className={`px-2 py-1 text-xs rounded-full ${isDarkMode
+                  ? 'bg-gray-700 text-gray-300'
+                  : 'bg-gray-100 text-gray-600'
+                  }`}>
                   {user.role}
                 </span>
               </div>

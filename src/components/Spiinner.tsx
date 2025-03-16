@@ -1,21 +1,9 @@
-import React from 'react';
+// import React from 'react';
 
-interface SpinnerProps {
-    size?: number;
-    color?: string;
-    message?: string; // Optional message prop
-}
-
-const Spinner: React.FC<SpinnerProps> = ({ size = 40, color = 'text-blue-500', message }) => {
+const Spinner = () => {
     return (
-        <div className="flex flex-col justify-center items-center space-y-4">
-            <div
-                className={`animate-spin rounded-full h-${size} w-${size} border-b-2 ${color}`}
-                style={{ borderTopColor: 'transparent' }}
-            ></div>
-            {message && <p className="text-gray-600">{message}</p>}
-        </div>
+        <div className="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" />
     );
-};
+}
 
 export default Spinner;

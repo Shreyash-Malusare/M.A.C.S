@@ -7,6 +7,7 @@ import { RelatedProducts } from '../components/product/RelatedProducts';
 import { fetchProductById, fetchProducts } from '../api/products';
 import { fetchProductReviews } from '../api/reviews';
 import { Product, Review } from '../types';
+import Spinner from '../components/Spiinner';
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -50,7 +51,7 @@ export function ProductPage() {
     loadProduct();
   }, [id]);
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner message="Loading Product..." /></div>;
   if (error) return <div className="min-h-screen flex items-center justify-center text-red-500">{error}</div>;
   if (!product) return <div className="min-h-screen flex items-center justify-center">Product not found</div>;
 

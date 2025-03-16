@@ -4,6 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import Spinner from '../Spiinner';
 
 const VITE_FRONT_END_IP = import.meta.env.VITE_FRONT_END_IP;
 
@@ -156,7 +157,7 @@ export const Orders = () => {
 
       {loading ? (
         <div className="flex justify-center p-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-gray-100" />
+          <Spinner />
         </div>
       ) : orders.length === 0 ? (
         <div className="text-center p-8">

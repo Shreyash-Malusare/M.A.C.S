@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+import Spinner from '../Spiinner';
 const VITE_FRONT_END_IP = import.meta.env.VITE_FRONT_END_IP;
-const API_URL = `${VITE_FRONT_END_IP}/api/users`;
+
 
 interface User {
   _id: string;
@@ -20,6 +21,7 @@ export const Users = () => {
   const { user } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -37,6 +39,8 @@ export const Users = () => {
   }, [user]);
 
   if (user?.role !== 'admin') return null;
+  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner /></div>;
+
 
   return (
     <div className="space-y-4">

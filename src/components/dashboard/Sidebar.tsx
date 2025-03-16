@@ -1,5 +1,6 @@
 import { Package, Users, ShoppingBag, User, X, Mail } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { Link, useLocation } from 'react-router-dom';
 
 interface SidebarProps {
   activeTab: string;
@@ -10,19 +11,20 @@ interface SidebarProps {
 
 export function Sidebar({ activeTab, setActiveTab, isOpen, onClose }: SidebarProps) {
   const { user } = useAuth();
+  const location = useLocation();
 
   const adminNavItems = [
-    { id: 'overview', label: 'Overview', icon: Package },
-    { id: 'products', label: 'Products', icon: Package },
-    { id: 'users', label: 'Users', icon: Users },
-    { id: 'orders', label: 'All Orders', icon: ShoppingBag },
-    { id: 'messages', label: 'Messages', icon: Mail },
-    { id: 'profile', label: 'Profile', icon: User },
+    { id: 'overview', label: 'Overview', icon: Package, path: '/dashboard/overview' },
+    { id: 'products', label: 'Products', icon: Package, path: '/dashboard/products' },
+    { id: 'users', label: 'Users', icon: Users, path: '/dashboard/users' },
+    { id: 'orders', label: 'All Orders', icon: ShoppingBag, path: '/dashboard/orders' },
+    { id: 'messages', label: 'Messages', icon: Mail, path: '/dashboard/messages' },
+    { id: 'profile', label: 'Profile', icon: User, path: '/dashboard/profile' },
   ];
 
   const userNavItems = [
-    { id: 'profile', label: 'Profile', icon: User },
-    { id: 'orders', label: 'My Orders', icon: ShoppingBag },
+    { id: 'profile', label: 'Profile', icon: User, path: '/dashboard/profile' },
+    { id: 'orders', label: 'My Orders', icon: ShoppingBag, path: '/dashboard/orders' },
   ];
 
   const navItems = user?.role === 'admin' ? adminNavItems : userNavItems;
@@ -64,20 +66,21 @@ export function Sidebar({ activeTab, setActiveTab, isOpen, onClose }: SidebarPro
 
           <nav className="space-y-2">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.id}
+                to={item.path}
                 onClick={() => {
                   setActiveTab(item.id);
                   onClose();
                 }}
-                className={`w-full flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${activeTab === item.id
+                className={`w-full flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${location.pathname === item.path
                   ? 'bg-black text-white dark:bg-white dark:text-black'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
               >
                 <item.icon size={20} />
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
         </div>

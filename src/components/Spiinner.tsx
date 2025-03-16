@@ -2,7 +2,7 @@
 
 const Spinner = () => {
     return (
-        <div className="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-gray-100" />
     );
 }
 

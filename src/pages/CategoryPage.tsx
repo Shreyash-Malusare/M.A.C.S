@@ -5,6 +5,7 @@ import { Pagination } from '../components/pagination/Pagination';
 import { Filters } from '../components/Filters';
 import { fetchProducts } from '../api/products';
 import { Product } from '../types';
+import Spinner from '../components/Spinner';
 
 interface CategoryPageProps {
   searchQuery: string;
@@ -24,30 +25,7 @@ export function CategoryPage({ searchQuery, onAddToCart }: CategoryPageProps) {
 
   // Define a limit for items per page
   const limit = 12;
-
-  // useEffect(() => {
-  //   const loadProducts = async () => {
-  //     try {
-  //       const { products, totalPages } = await fetchProducts(
-  //         selectedCategory,
-  //         searchQuery,
-  //         priceRange,
-  //         sortBy,
-  //         currentPage,
-  //         limit // Sixth argument added here
-  //       );
-  //       setProducts(products);
-  //       setTotalPages(totalPages);
-  //     } catch (error) {
-  //       console.error('Error loading products:', error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   loadProducts();
-  // }, [selectedCategory, searchQuery, priceRange, sortBy, currentPage, limit]);
-
+  
   useEffect(() => {
     const loadProducts = async () => {
       try {
@@ -60,7 +38,7 @@ export function CategoryPage({ searchQuery, onAddToCart }: CategoryPageProps) {
           currentPage,
           limit
         );
-  
+
         // Apply client-side search filter (only for product name)
         const filteredProducts = fetchedProducts.filter((product: Product) => {
           const searchLower = searchQuery.toLowerCase();
@@ -70,7 +48,7 @@ export function CategoryPage({ searchQuery, onAddToCart }: CategoryPageProps) {
             product.description.toLowerCase().includes(searchLower)
           ); // Only search by name
         });
-  
+
         setProducts(filteredProducts);
         setTotalPages(totalPages);
       } catch (error) {
@@ -79,16 +57,16 @@ export function CategoryPage({ searchQuery, onAddToCart }: CategoryPageProps) {
         setLoading(false);
       }
     };
-  
+
     loadProducts();
   }, [selectedCategory, searchQuery, priceRange, sortBy, currentPage, limit]);
-  
+
   const handleCategoryChange = (newCategory: string) => {
     setSelectedCategory(newCategory);
     navigate(`/category/${newCategory}`);
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="flex justify-center items-center h-screen"><Spinner message="Loading data..." /></div>;
 
   return (
     <main className="flex-1 max-w-7xl mx-auto px-4 py-8">
@@ -103,12 +81,12 @@ export function CategoryPage({ searchQuery, onAddToCart }: CategoryPageProps) {
             onCategoryChange={handleCategoryChange}
           />
         </div>
-        
+
         <div className="lg:col-span-3">
           <h1 className="text-3xl font-bold mb-6 capitalize">
             {selectedCategory === 'all' ? 'All Products' : `${selectedCategory} Collection`}
           </h1>
-          
+
           {products.length > 0 ? (
             <>
               <ProductGrid products={products} onAddToCart={onAddToCart} />

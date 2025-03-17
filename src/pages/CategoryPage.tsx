@@ -25,7 +25,15 @@ export function CategoryPage({ searchQuery, onAddToCart }: CategoryPageProps) {
 
   // Define a limit for items per page
   const limit = 12;
-  
+
+  // Sync selectedCategory with URL params
+  useEffect(() => {
+    if (category) {
+      setSelectedCategory(category);
+      setCurrentPage(1); // Reset pagination to page 1
+    }
+  }, [category]);
+
   useEffect(() => {
     const loadProducts = async () => {
       try {

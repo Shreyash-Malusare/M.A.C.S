@@ -27,7 +27,7 @@ export function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className={`fixed bottom-6 right-6 p-3 rounded-full shadow-lg transition-colors z-40 ${
+          className={`fixed bottom-4 right-4 p-3 rounded-full shadow-lg transition-colors z-40 ${
             isDarkMode 
               ? 'bg-gray-700 text-gray-100 hover:bg-gray-600' 
               : 'bg-black text-white hover:bg-gray-800'

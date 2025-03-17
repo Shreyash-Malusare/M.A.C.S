@@ -119,7 +119,7 @@ export const Checkout: React.FC = () => {
         description: `Order for ${user.name}`,
         handler: async (response: RazorpayResponse) => {
           await handleCreateOrder(response.razorpay_payment_id);
-          window.location.href = '/dashboard';
+          window.location.href = '/';
         },
         prefill: {
           name: user.name || 'Customer',

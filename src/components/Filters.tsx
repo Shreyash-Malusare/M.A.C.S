@@ -78,7 +78,7 @@ export function Filters({
             <input
               type="range"
               min="0"
-              max="50000"
+              max="20000"
               value={priceRange[0]}
               onChange={(e) => onPriceRangeChange([Number(e.target.value), priceRange[1]])}
               className={`w-full range ${
@@ -88,7 +88,7 @@ export function Filters({
             <input
               type="range"
               min="0"
-              max="50000"
+              max="20000"
               value={priceRange[1]}
               onChange={(e) => onPriceRangeChange([priceRange[0], Number(e.target.value)])}
               className={`w-full range ${

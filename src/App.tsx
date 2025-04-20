@@ -5,7 +5,6 @@ import { Navbar } from './components/navigation/Navbar';
 import { LoginModal } from './components/auth/LoginModal';
 import { RegisterModal } from './components/auth/RegisterModal';
 import { Footer } from './components/Footer';
-import { ScrollToTop } from './components/ScrollToTop';
 import { Chatbot } from './components/Chatbot';
 import { HomePage } from './pages/HomePage';
 import { About } from './pages/About';
@@ -24,6 +23,16 @@ import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { Checkout } from './components/payment/checkout';
 
+// ScrollToTop component to handle scroll behavior
+const ScrollToTop = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location]);
+
+  return null;
+};
 // Create a wrapper component that uses hooks
 function AppContent() {
   const navigate = useNavigate();
@@ -138,7 +147,7 @@ function AppContent() {
         }}
       />
 
-      <ScrollToTop />
+      
       <Chatbot />
     </div>
   );
@@ -148,6 +157,7 @@ function AppContent() {
 export default function App() {
   return ( 
     <Router basename="/">
+      <ScrollToTop />
       <AuthProvider>
         <ThemeProvider>
           <AppContent />

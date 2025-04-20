@@ -65,7 +65,7 @@ export function Footer() {
               <li><Link to="/" className="">Home</Link></li>
               <li><Link to="/about" className="">About Us</Link></li>
               <li><Link to="/contact" className="">Contact Us</Link></li>
-              <li><a href="/" className="">Privacy Policy</a></li>
+              <li><a href="/category/all" className="">All Products</a></li>
             </ul>
           </div>
 
@@ -86,7 +86,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center gap-2">
                 <MapPin size={16} />
-                B/207, Hanuman Nagar, Bhayander East
+                Mumbai
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} />

@@ -74,9 +74,8 @@ export function Contact() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
           {/* Contact Information */}
           <div>
             <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
@@ -147,15 +146,6 @@ export function Contact() {
                   </button>
                 </div>
               </div>
-            </div>
-
-            {/* Map */}
-            <div className="mt-8 h-96">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.755837866462!2d72.8332153153846!3d19.03374445825173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce6e93c9e4b7%3A0x2a5f5b5b5b5b5b5b!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1645890124885!5m2!1sen!2sin"
-                className="w-full h-full rounded-lg"
-                loading="lazy"
-              ></iframe>
             </div>
           </div>
 
@@ -242,6 +232,15 @@ export function Contact() {
               </button>
             </form>
           </div>
+        </div>
+
+        {/* Full-width Map at the bottom */}
+        <div className="mt-12 w-full h-96">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.755837866462!2d72.8332153153846!3d19.03374445825173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce6e93c9e4b7%3A0x2a5f5b5b5b5b5b5b!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1645890124885!5m2!1sen!2sin"
+            className="w-full h-full rounded-lg"
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>

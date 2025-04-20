@@ -86,7 +86,7 @@ export function Contact() {
                 {
                   icon: MapPin,
                   title: 'Address',
-                  desc: 'Mira Bhayander',
+                  desc: 'Mumbai',
                 },
                 { icon: Phone, title: 'Phone', desc: '+91 9076452426' },
                 {

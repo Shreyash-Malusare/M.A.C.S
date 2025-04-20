@@ -125,16 +125,6 @@ export function Contact() {
                     <span>Chat on WhatsApp</span>
                   </button>
                   <button
-                    onClick={() => window.open('tel:+919076452426')}
-                    className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
-                      ? 'bg-blue-600 hover:bg-blue-700'
-                      : 'bg-blue-500 hover:bg-blue-600'
-                      } text-white`}
-                  >
-                    <Phone size={20} />
-                    <span>Call Us Now</span>
-                  </button>
-                  <button
                     onClick={() => window.open('sms:+919076452426')}
                     className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
                       ? 'bg-purple-600 hover:bg-purple-700'
@@ -148,8 +138,8 @@ export function Contact() {
                       onClick={() => window.open(`mailto:malusareshreyash01@gmail.com?subject=Inquiry from Website&body=${encodeURIComponent('Hello, I would like to get more information about...')}`)}
                       className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${
                           isDarkMode
-                          ? 'bg-purple-600 hover:bg-purple-700'
-                          : 'bg-purple-500 hover:bg-purple-600'
+                          ? 'bg-blue-600 hover:bg-purple-700'
+                          : 'bg-blue-500 hover:bg-purple-600'
                       } text-white`}
                   >
                       <Mail size={20} />

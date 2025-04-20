@@ -116,7 +116,7 @@ export function Contact() {
                 <h3 className="text-lg font-semibold mb-4">Quick Contact Options</h3>
                 <div className="space-y-3">
                   <button
-                    onClick={() => window.open(`https://wa.me/+919372471869?text=${encodeURIComponent('Hi, I would like to know more about your courses.')}`, '_blank')}
+                    onClick={() => window.open(`https://wa.me/+919076452426?text=${encodeURIComponent('Hi, I would like to know more about your courses.')}`, '_blank')}
                     className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
                       ? 'bg-green-600 hover:bg-green-700'
                       : 'bg-green-500 hover:bg-green-600'
@@ -126,7 +126,7 @@ export function Contact() {
                     <span>Chat on WhatsApp</span>
                   </button>
                   <button
-                    onClick={() => window.open('tel:+919372471869')}
+                    onClick={() => window.open('tel:+919076452426')}
                     className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
                       ? 'bg-blue-600 hover:bg-blue-700'
                       : 'bg-blue-500 hover:bg-blue-600'
@@ -136,7 +136,7 @@ export function Contact() {
                     <span>Call Us Now</span>
                   </button>
                   <button
-                    onClick={() => window.open('sms:+919372471869')}
+                    onClick={() => window.open('sms:+919076452426')}
                     className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
                       ? 'bg-purple-600 hover:bg-purple-700'
                       : 'bg-purple-500 hover:bg-purple-600'

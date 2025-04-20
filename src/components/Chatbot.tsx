@@ -50,7 +50,7 @@ export function Chatbot() {
       "cancel order": "You can cancel your order before it is shipped. Visit Contact page to cancel order.",
       "care instructions": "Care instructions are provided on the product label and in the product description online.",
       "store location": "We have ou store in Mumbai. Visit our Contact page for more details.",
-      products:"You can see multiple products with multiple categories."
+      products:"You can see multiple products with multiple categories.",
       default: "I'm here to help with fashion-related questions! Ask me about orders, sizing, or our products.",
     };
 

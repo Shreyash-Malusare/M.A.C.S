@@ -101,7 +101,7 @@ export function Cart({ isOpen, onClose }: CartProps) {
                   <img src={item.productId.image} alt={item.productId.name} className="w-20 h-20 object-cover rounded" />
                   <div className="flex-1">
                     <h3 className="font-medium dark:text-white">{item.productId.name}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">${item.productId.price}</p>
+                    <p className="text-gray-600 dark:text-gray-300">₹{item.productId.price}</p>
                     <p className="text-gray-600 dark:text-gray-300">Size: {item.size}</p> {/* Display size */}
                     <div className="flex items-center gap-2 mt-2">
                     <button

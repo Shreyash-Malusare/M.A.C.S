@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, MessageCircle } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
-import { submitMessage } from '../api/messages'; // Import the API function
+import { submitMessage } from '../api/messages';
 
 export function Contact() {
   const { theme } = useTheme();
@@ -34,7 +34,6 @@ export function Contact() {
         user?._id
       );
 
-      // Reset form and show success message
       setFormData({ name: '', email: '', subject: '', message: '' });
       setSubmitSuccess(true);
       setTimeout(() => setSubmitSuccess(false), 3000);
@@ -55,7 +54,6 @@ export function Contact() {
     }));
   };
 
-  // Check if the user is an admin
   const isAdmin = user?.role === 'admin';
 
   return (
@@ -111,10 +109,47 @@ export function Contact() {
                   </div>
                 </div>
               ))}
+
+              {/* Quick Contact Options */}
+              <div className="pt-6">
+                <h3 className="text-lg font-semibold mb-4">Quick Contact Options</h3>
+                <div className="space-y-3">
+                  <button
+                    onClick={() => window.open(`https://wa.me/+919372471869?text=${encodeURIComponent('Hi, I would like to know more about your courses.')}`, '_blank')}
+                    className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
+                      ? 'bg-green-600 hover:bg-green-700'
+                      : 'bg-green-500 hover:bg-green-600'
+                      } text-white`}
+                  >
+                    <MessageSquare size={20} />
+                    <span>Chat on WhatsApp</span>
+                  </button>
+                  <button
+                    onClick={() => window.open('tel:+919372471869')}
+                    className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
+                      ? 'bg-blue-600 hover:bg-blue-700'
+                      : 'bg-blue-500 hover:bg-blue-600'
+                      } text-white`}
+                  >
+                    <Phone size={20} />
+                    <span>Call Us Now</span>
+                  </button>
+                  <button
+                    onClick={() => window.open('sms:+919372471869')}
+                    className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
+                      ? 'bg-purple-600 hover:bg-purple-700'
+                      : 'bg-purple-500 hover:bg-purple-600'
+                      } text-white`}
+                  >
+                    <MessageCircle size={20} />
+                    <span>Send SMS</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* Map */}
-            <div className="mt-8 h-96"> {/* h-96 is equivalent to 24rem (384px) */}
+            <div className="mt-8 h-96">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.755837866462!2d72.8332153153846!3d19.03374445825173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce6e93c9e4b7%3A0x2a5f5b5b5b5b5b5b!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1645890124885!5m2!1sen!2sin"
                 className="w-full h-full rounded-lg"
@@ -130,14 +165,12 @@ export function Contact() {
           >
             <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
 
-            {/* Success Message */}
             {submitSuccess && (
               <div className="bg-green-100 text-green-800 p-3 rounded-md mb-4">
                 Message sent successfully!
               </div>
             )}
 
-            {/* Error Message */}
             {error && (
               <div className="bg-red-100 text-red-800 p-3 rounded-md mb-4">
                 {error}
@@ -191,10 +224,9 @@ export function Contact() {
                 ></textarea>
               </div>
 
-              {/* Send Message Button */}
               <button
                 type="submit"
-                disabled={isSubmitting || isAdmin} // Disable for admins
+                disabled={isSubmitting || isAdmin}
                 className={`w-full py-3 rounded-md flex items-center justify-center gap-2 transition-colors ${isDarkMode
                   ? 'bg-gray-700 text-white hover:bg-gray-600'
                   : 'bg-black text-white hover:bg-gray-800'

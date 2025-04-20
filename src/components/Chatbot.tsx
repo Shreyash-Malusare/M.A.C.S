@@ -85,7 +85,7 @@ export function Chatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className={`fixed bottom-4 left-4 md:bottom-4 md:left-4 p-3 md:p-4 rounded-full shadow-lg transition-colors z-50 ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-black text-white hover:bg-gray-800'
+          className={`fixed bottom-4 right-4 md:bottom-4 md:right-4 p-3 md:p-4 rounded-full shadow-lg transition-colors z-50 ${isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700' : 'bg-black text-white hover:bg-gray-800'
             }`}
           aria-label="Open chat"
         >
@@ -97,7 +97,7 @@ export function Chatbot() {
       {isOpen && (
         <div
           ref={chatbotRef}
-          className={`fixed bottom-4 left-4 md:bottom-8 md:left-8 w-[calc(100%-2rem)] md:w-[400px] rounded-lg shadow-xl z-50 flex flex-col max-h-[600px] ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+          className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 w-[calc(100%-2rem)] md:w-[400px] rounded-lg shadow-xl z-50 flex flex-col max-h-[600px] ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
             }`}
         >
           {/* Header */}

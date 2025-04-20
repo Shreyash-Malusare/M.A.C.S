@@ -115,7 +115,7 @@ export function Contact() {
                 <h3 className="text-lg font-semibold mb-4">Quick Contact Options</h3>
                 <div className="space-y-3">
                   <button
-                    onClick={() => window.open(`https://wa.me/+919076452426?text=${encodeURIComponent('Hi, I would like to know more about your courses.')}`, '_blank')}
+                    onClick={() => window.open(`https://wa.me/+919076452426?text=${encodeURIComponent('Hello! I came across your MACS web application and would like to discuss:\n\n1. General inquiries about your services\n2. Technical questions\n3. Partnership opportunities\n\nLooking forward to your response.')}`, '_blank')}
                     className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${isDarkMode
                       ? 'bg-green-600 hover:bg-green-700'
                       : 'bg-green-500 hover:bg-green-600'
@@ -143,6 +143,17 @@ export function Contact() {
                   >
                     <MessageCircle size={20} />
                     <span>Send SMS</span>
+                  </button>
+                  <button
+                      onClick={() => window.open(`mailto:malusareshreyash01@gmail.com?subject=Inquiry from Website&body=${encodeURIComponent('Hello, I would like to get more information about...')}`)}
+                      className={`w-full flex items-center justify-center space-x-2 py-3 rounded-lg transition-colors duration-200 ${
+                          isDarkMode
+                          ? 'bg-purple-600 hover:bg-purple-700'
+                          : 'bg-purple-500 hover:bg-purple-600'
+                      } text-white`}
+                  >
+                      <Mail size={20} />
+                      <span>Send Email</span>
                   </button>
                 </div>
               </div>

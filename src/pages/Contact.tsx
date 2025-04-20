@@ -86,7 +86,7 @@ export function Contact() {
                 {
                   icon: MapPin,
                   title: 'Address',
-                  desc: 'B/207, Hanuman Nagar, Bhayander-East',
+                  desc: 'Mira Bhayander',
                 },
                 { icon: Phone, title: 'Phone', desc: '+91 9076452426' },
                 {

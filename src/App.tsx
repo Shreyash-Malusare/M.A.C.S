@@ -87,6 +87,7 @@ function AppContent() {
       />
 
       <main className="flex-1 text-gray-900 dark:text-gray-100">
+        <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:category" element={<CategoryPage searchQuery={searchQuery} onAddToCart={addToCart} />} />
@@ -106,6 +107,7 @@ function AppContent() {
             <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
+        </Router>
       </main>
 
       <Footer />
@@ -144,13 +146,11 @@ function AppContent() {
 
 // Main App component that provides context
 export default function App() {
-  return (
-    <Router>
+  return ( 
       <AuthProvider>
         <ThemeProvider>
           <AppContent />
         </ThemeProvider>
       </AuthProvider>
-    </Router>
   );
 }

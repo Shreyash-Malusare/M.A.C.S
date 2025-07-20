@@ -156,7 +156,7 @@ function AppContent() {
 // Main App component that provides context
 export default function App() {
   return ( 
-    <Router basename="/">
+    <Router>
       <ScrollToTop />
       <AuthProvider>
         <ThemeProvider>

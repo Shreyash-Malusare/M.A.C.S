@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate,useLocation } from 'react-router-dom';
+import { HashRouter  as Router, Routes, Route, useNavigate,useLocation } from 'react-router-dom';
 import { Cart } from './components/Cart';
 import { Navbar } from './components/navigation/Navbar';
 import { LoginModal } from './components/auth/LoginModal';
